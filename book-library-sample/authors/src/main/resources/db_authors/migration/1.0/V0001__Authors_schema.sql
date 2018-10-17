@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS author (
+  id BIGINT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  code CHAR(4) UNIQUE NOT NULL,
+  country VARCHAR(50),
+  PRIMARY KEY (id)
+);
