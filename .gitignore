@@ -1,0 +1,17 @@
+target
+*/target
+.project
+.classpath
+.settings
+.vscode
+/.project
+/logs
+logs
+*.log
+/.idea
+*.iml
+/.metadata/
+/Servers
+/.sonarlint
+/.recommenders
+*.idea
