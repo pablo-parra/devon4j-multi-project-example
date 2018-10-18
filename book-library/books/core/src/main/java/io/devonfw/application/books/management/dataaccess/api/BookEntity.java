@@ -1,15 +1,9 @@
-package io.devonfw.application.books.general.dataaccess.api;
-
-import java.awt.print.Book;
+package io.devonfw.application.books.management.dataaccess.api;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/**
- * {@link ApplicationPersistenceEntity Entity} for {@link Book}
- *
- */
 @Entity
 @Table(name = "book")
 public class BookEntity {
