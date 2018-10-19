@@ -17,7 +17,7 @@
     <spring.boot.version>1.5.3.RELEASE</spring.boot.version>
     <oasp4j.version>2.6.0</oasp4j.version>
     <flyway.version>4.2.0</flyway.version>
-    <java.version>1.7</java.version>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <oasp.test.excluded.groups>io.oasp.module.test.common.api.category.CategorySystemTest</oasp.test.excluded.groups>
