@@ -19,7 +19,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import io.devonfw.application.books.general.common.impl.security.CsrfRequestMatcher;
 import io.oasp.module.security.common.impl.rest.AuthenticationSuccessHandlerSendingOkHttpStatusCode;
 import io.oasp.module.security.common.impl.rest.JsonUsernamePasswordAuthenticationFilter;
 import io.oasp.module.security.common.impl.rest.LogoutSuccessHandlerReturningOkHttpStatusCode;
@@ -62,8 +61,8 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
   @Override
   public void configure(HttpSecurity http) throws Exception {
 
-    String[] unsecuredResources =
-        new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout" };
+    String[] unsecuredResources = new String[] { "/login", "/security/**", "/services/rest/login",
+    "/services/rest/logout" };
 
     http
         //
@@ -72,7 +71,9 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
         .authorizeRequests().antMatchers(unsecuredResources).permitAll().anyRequest().authenticated().and()
 
         // activate crsf check for a selection of urls (but not for login & logout)
-        .csrf().requireCsrfProtectionMatcher(new CsrfRequestMatcher()).and()
+        // TODO fix the issue with the csrf
+        // .csrf().requireCsrfProtectionMatcher(new CsrfRequestMatcher()).and()
+        .csrf().disable()
 
         // configure parameters for simple form login (and logout)
         .formLogin().successHandler(new SimpleUrlAuthenticationSuccessHandler()).defaultSuccessUrl("/")
@@ -98,8 +99,8 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
    */
   protected Filter getSimpleRestLogoutFilter() {
 
-    LogoutFilter logoutFilter =
-        new LogoutFilter(new LogoutSuccessHandlerReturningOkHttpStatusCode(), new SecurityContextLogoutHandler());
+    LogoutFilter logoutFilter = new LogoutFilter(new LogoutSuccessHandlerReturningOkHttpStatusCode(),
+        new SecurityContextLogoutHandler());
 
     // configure logout for rest logouts
     logoutFilter.setLogoutRequestMatcher(new AntPathRequestMatcher("/services/rest/logout"));
@@ -116,8 +117,8 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
    */
   protected JsonUsernamePasswordAuthenticationFilter getSimpleRestAuthenticationFilter() throws Exception {
 
-    JsonUsernamePasswordAuthenticationFilter jsonFilter =
-        new JsonUsernamePasswordAuthenticationFilter(new AntPathRequestMatcher("/services/rest/login"));
+    JsonUsernamePasswordAuthenticationFilter jsonFilter = new JsonUsernamePasswordAuthenticationFilter(
+        new AntPathRequestMatcher("/services/rest/login"));
     jsonFilter.setPasswordParameter("j_password");
     jsonFilter.setUsernameParameter("j_username");
     jsonFilter.setAuthenticationManager(authenticationManager());

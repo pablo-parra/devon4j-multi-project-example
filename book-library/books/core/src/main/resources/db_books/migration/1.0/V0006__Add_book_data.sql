@@ -1,3 +1,3 @@
-insert into book (id, title, author_code) values (1, 'Steppenwolf', 'A001');
-insert into book (id, title, author_code) values (2, 'Demian', 'A001');
-insert into book (id, title, author_code) values (3, 'Ulysses', 'A002');
+insert into book (id, modificationCounter, title, authorCode) values (1, 0, 'Steppenwolf', 'A001');
+insert into book (id, modificationCounter, title, authorCode) values (2, 0, 'Demian', 'A001');
+insert into book (id, modificationCounter, title, authorCode) values (3, 0, 'Ulysses', 'A002');

@@ -1,17 +1,20 @@
-package io.devonfw.application.books.management.dataaccess.api;
+package io.devonfw.application.books.bookmanagement.dataaccess.api;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import io.devonfw.application.books.bookmanagement.common.api.Book;
+import io.devonfw.application.books.general.dataaccess.api.ApplicationPersistenceEntity;
+
 @Entity
 @Table(name = "book")
-public class BookEntity {
+public class BookEntity extends ApplicationPersistenceEntity implements Book {
 
   private String title;
 
-  @Column(name = "author_code")
   private String authorCode;
+
+  private static final long serialVersionUID = 1L;
 
   /**
    * @return title

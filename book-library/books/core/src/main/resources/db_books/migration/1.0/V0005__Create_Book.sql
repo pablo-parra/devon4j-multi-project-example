@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS book (
   id BIGINT NOT NULL,
+  modificationCounter INTEGER NOT NULL,
   title VARCHAR(100) NOT NULL,
-  author_code CHAR(4) NOT NULL,
+  authorCode VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
