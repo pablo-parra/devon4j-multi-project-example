@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import io.devonfw.application.books.bookmanagement.dataaccess.api.BookEntity;
 
 /**
- * Repository for Book entity
+ * Repository for {@link BookEntity}
  *
  */
 public interface BookRepository extends JpaRepository<BookEntity, Long> {

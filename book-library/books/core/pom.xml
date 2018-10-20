@@ -119,6 +119,12 @@
       <artifactId>postgresql</artifactId>
       <scope>runtime</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>io.devonfw.application</groupId>
+      <artifactId>authors-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>org.flywaydb</groupId>

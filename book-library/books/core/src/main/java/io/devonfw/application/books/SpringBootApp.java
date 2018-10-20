@@ -2,7 +2,7 @@ package io.devonfw.application.books;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 import io.oasp.module.jpa.dataaccess.api.AdvancedRevisionEntity;
@@ -11,7 +11,8 @@ import io.oasp.module.jpa.dataaccess.api.AdvancedRevisionEntity;
  * Main entry point of this {@link SpringBootApplication}. Simply run this class to start this app.
  */
 @SpringBootApplication
-@EntityScan(basePackages = { "io.devonfw.application.books" }, basePackageClasses = { AdvancedRevisionEntity.class })
+@ComponentScan(basePackages = { "io.devonfw.application.books",
+"io.devonfw.application.authors" }, basePackageClasses = { AdvancedRevisionEntity.class })
 @EnableGlobalMethodSecurity(jsr250Enabled = true)
 public class SpringBootApp {
 

@@ -1,5 +1,6 @@
 package io.devonfw.application.books.bookmanagement.logic.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,6 +20,7 @@ import io.devonfw.application.books.bookmanagement.logic.api.to.BookEto;
 import io.devonfw.application.books.bookmanagement.logic.api.to.BookSearchCriteriaTo;
 import io.devonfw.application.books.general.logic.base.AbstractComponentFacade;
 import io.oasp.module.jpa.common.api.to.PaginatedListTo;
+import io.oasp.module.jpa.common.api.to.PaginationResultTo;
 
 /**
  * Implementation of component interface of {@link Bookmanagement}
@@ -54,19 +56,10 @@ public class BookmanagementImpl extends AbstractComponentFacade implements Bookm
   public List<BookEto> findBookEtos(BookSearchCriteriaTo criteria) {
 
     criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
-    BookEntity filterBook = new BookEntity();
 
     Example<BookEntity> filters = Example.of(toBookEntity(criteria));
     List<BookEntity> books = this.bookRepository.findAll(filters);
     return getBeanMapper().mapList(books, BookEto.class);
-  }
-
-  private BookEntity toBookEntity(BookSearchCriteriaTo criteria) {
-
-    BookEntity b = new BookEntity();
-    b.setAuthorCode(criteria.getAuthorCode());
-    b.setTitle(criteria.getTitle());
-    return b;
   }
 
   @Override
@@ -94,35 +87,38 @@ public class BookmanagementImpl extends AbstractComponentFacade implements Bookm
   @Override
   public BookCto findBookCto(Long id) {
 
-    // LOG.debug("Get BookCto with id {} from database.", id);
-    // BookEntity entity = getBookDao().findOne(id);
-    // BookCto cto = new BookCto();
-    // cto.setBook(getBeanMapper().map(entity, BookEto.class));
-    //
-    // return cto;
+    LOG.debug("Get BookCto with id {} from database.", id);
+    BookEntity entity = this.bookRepository.findOne(id);
+    BookCto cto = new BookCto();
+    cto.setBook(getBeanMapper().map(entity, BookEto.class));
 
-    // TODO add implementation
-    return null;
+    return cto;
   }
 
   @Override
   public PaginatedListTo<BookCto> findBookCtos(BookSearchCriteriaTo criteria) {
 
-    // criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
-    // PaginatedListTo<BookEntity> books = getBookDao().findBooks(criteria);
-    // List<BookCto> ctos = new ArrayList<>();
-    // for (BookEntity entity : books.getResult()) {
-    // BookCto cto = new BookCto();
-    // cto.setBook(getBeanMapper().map(entity, BookEto.class));
-    // ctos.add(cto);
-    //
-    // }
-    // PaginationResultTo pagResultTo = new PaginationResultTo(criteria.getPagination(), (long) ctos.size());
-    // PaginatedListTo<BookCto> pagListTo = new PaginatedListTo(ctos, pagResultTo);
-    // return pagListTo;
+    criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
+    Example<BookEntity> filters = Example.of(toBookEntity(criteria));
+    List<BookEntity> books = this.bookRepository.findAll(filters);
+    List<BookCto> ctos = new ArrayList<>();
+    for (BookEntity entity : books) {
+      BookCto cto = new BookCto();
+      cto.setBook(getBeanMapper().map(entity, BookEto.class));
+      ctos.add(cto);
 
-    // TODO add implementation
-    return null;
+    }
+    PaginationResultTo pagResultTo = new PaginationResultTo(criteria.getPagination(), (long) ctos.size());
+    PaginatedListTo<BookCto> pagListTo = new PaginatedListTo(ctos, pagResultTo);
+    return pagListTo;
+  }
+
+  private BookEntity toBookEntity(BookSearchCriteriaTo criteria) {
+
+    BookEntity book = new BookEntity();
+    book.setAuthorCode(criteria.getAuthorCode());
+    book.setTitle(criteria.getTitle());
+    return book;
   }
 
 }
