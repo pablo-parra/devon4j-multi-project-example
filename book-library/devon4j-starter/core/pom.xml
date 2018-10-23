@@ -3,35 +3,28 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>io.devonfw.application</groupId>
-    <artifactId>books</artifactId>
+    <groupId>io.devonfw.module.starters</groupId>
+    <artifactId>devon4j-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>books-core</artifactId>
+  <artifactId>devon4j-starter-core</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
-  <description>Core of the server for the books application - a simple example using the Open Application Standard Platform for Java (OASP4J).</description>
+  <description>Core of the server for the devon4j-starter application - a simple example using the Open Application Standard Platform for Java (OASP4J).</description>
 
   <dependencies>
-  
-    <dependency>
-      <groupId>io.devonfw.module.starters</groupId>
-      <artifactId>devon4j-starter-core</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>books-api</artifactId>
+      <artifactId>devon4j-starter-api</artifactId>
       <version>${project.version}</version>
     </dependency>
 
-<!--     <dependency>
+    <dependency>
       <groupId>io.oasp.java.modules</groupId>
       <artifactId>oasp4j-beanmapping</artifactId>
-    </dependency> -->
+    </dependency>
 
-<!--     <dependency>
+    <dependency>
       <groupId>io.oasp.java.modules</groupId>
       <artifactId>oasp4j-security</artifactId>
     </dependency>
@@ -57,14 +50,14 @@
     <dependency>
       <groupId>io.oasp.java.modules</groupId>
       <artifactId>oasp4j-jpa-envers</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- auto-configure datasource
       https://stackoverflow.com/questions/34964066/spring-boot-doesnt-use-datasource-properties
       https://github.com/oasp/oasp4j/issues/608
       https://github.com/oasp/oasp4j/issues/613
       -->
-<!--     <dependency>
+    <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-jdbc</artifactId>
     </dependency>
@@ -83,54 +76,42 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-    </dependency>-->
+    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
-    </dependency> 
+    </dependency>
 
     <!-- for SpringDispatcher Servlet -->
-<!--     <dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- for HttpInvoker -->
-<!--     <dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- for Object Relational Mapping (JPA/Hibernate) -->
-<!--     <dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- Hibernate EntityManager for JPA (implementation) -->
-<!--     <dependency>
+    <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- Database -->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    
-    <dependency>
-      <groupId>io.devonfw.application</groupId>
-      <artifactId>authors-core</artifactId>
-      <version>${project.version}</version>
     </dependency>
 
     <dependency>
@@ -139,7 +120,7 @@
     </dependency>
 
     <!-- hibernate -->
-<!--     <dependency>
+    <dependency>
       <groupId>org.hibernate.javax.persistence</groupId>
       <artifactId>hibernate-jpa-2.1-api</artifactId>
     </dependency>
@@ -150,16 +131,16 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- CXF for REST and Webservices -->
-<!--     <dependency>
+    <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-rs-service-description</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- Web Sockets -->
-<!--     <dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-websocket</artifactId>
     </dependency>
@@ -167,15 +148,15 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-messaging</artifactId>
-    </dependency> -->
+    </dependency>
 
     <!-- Tests -->
-     <dependency>
+    <dependency>
       <groupId>io.oasp.java.modules</groupId>
       <artifactId>oasp4j-test</artifactId>
       <scope>test</scope>
     </dependency>
-<!--
+
     <dependency>
       <groupId>javax.el</groupId>
       <artifactId>javax.el-api</artifactId>
@@ -200,11 +181,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
-    
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>com.querydsl</groupId>
@@ -221,7 +197,7 @@
       <groupId>org.skyscreamer</groupId>
       <artifactId>jsonassert</artifactId>
       <scope>test</scope>
-    </dependency> -->
+    </dependency>
   </dependencies>
 
   <profiles>

@@ -18,7 +18,7 @@ import io.devonfw.application.books.bookmanagement.logic.api.Bookmanagement;
 import io.devonfw.application.books.bookmanagement.logic.api.to.BookCto;
 import io.devonfw.application.books.bookmanagement.logic.api.to.BookEto;
 import io.devonfw.application.books.bookmanagement.logic.api.to.BookSearchCriteriaTo;
-import io.devonfw.application.books.general.logic.base.AbstractComponentFacade;
+import io.devonfw.module.starters.devon4j.general.logic.base.AbstractComponentFacade;
 import io.oasp.module.jpa.common.api.to.PaginatedListTo;
 import io.oasp.module.jpa.common.api.to.PaginationResultTo;
 

@@ -10,6 +10,7 @@
 	<modules>
     <module>books</module>
     <module>authors</module>
+    <module>devon4j-starter</module>
   </modules>
 
 </project>
